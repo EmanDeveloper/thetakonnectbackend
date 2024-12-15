@@ -44,6 +44,7 @@ const Login = AsyncWrap(async (req, res) => {
 });
 
 const userLogin=AsyncWrap(async(req,res)=>{
+  // console.log(req.user)
   if(!req.isAuthenticated()){
     throw new ApiError(400,"Plesae login first")
   }

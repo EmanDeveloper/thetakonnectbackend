@@ -16,6 +16,7 @@ app.use(
     origin: "https://theta-konnect.netlify.app",
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
+    withCredentials: true 
   })
 );
 
@@ -40,8 +41,8 @@ app.use(
       expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 3),
       maxAge: 7 * 24 * 60 * 60 * 1000,
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production", 
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      secure: true, 
+      sameSite:"none" ,
     }
    
   })

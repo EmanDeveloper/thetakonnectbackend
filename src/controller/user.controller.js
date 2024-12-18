@@ -36,6 +36,11 @@ const signUp = AsyncWrap(async (req, res) => {
 });
 
 const Login = AsyncWrap(async (req, res) => {
+  req.login(req.user, (err) => {
+    if (err) {
+      throw new ApiError(400, "signup user error");
+    }
+  });
   if (!req.user) {
    throw new ApiError("Invalid email or password")
   }

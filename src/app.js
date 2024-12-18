@@ -55,7 +55,11 @@ app.use(passport.session())
 passport.use(
   new LocalStrategy({ usernameField: 'email' }, User.authenticate())
 );
-passport.serializeUser(User.serializeUser());
+passport.serializeUser(
+  (User, done ) => {
+    done(null, User.id); // stores the id<4kb
+  }
+);
 passport.deserializeUser(User.deserializeUser());
 
 import ProfileRout from "./routes/profile.routes.js";

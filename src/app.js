@@ -14,13 +14,13 @@ const app = express();
 app.set("trust proxy", 1);
 
 app.use(
+  "*",
   cors({
     origin: "https://theta-konnect.netlify.app",
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
-    withCredentials: true 
   })
 );
+
 app.set("trust proxy",1);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

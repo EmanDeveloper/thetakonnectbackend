@@ -32,7 +32,7 @@ app.use(
     store:MongoStore.create({
       mongoUrl:process.env.DB_URL,
       crypto:{
-        secret:process.env.session_secret
+        secret:process.env.session_secret 
       },
       touchAfter:24*3600,
     }),
@@ -42,7 +42,8 @@ app.use(
     cookie: {
       maxAge: 7 * 24 * 60 * 60 * 1000,
       httpOnly: true,
-      secure: true
+      secure: true,
+      sameSite:"lax"
     }
    
   })

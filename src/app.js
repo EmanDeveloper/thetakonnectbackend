@@ -19,7 +19,7 @@ app.use(
   })
 );
 
-app.set("trust proxy",1);
+// app.set("trust proxy",1);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -41,7 +41,7 @@ app.use(
       maxAge: 7 * 24 * 60 * 60 * 1000,
       httpOnly: true,
       secure: true,
-      sameSite:"none"
+      sameSite:"lax"
     }
    
   })

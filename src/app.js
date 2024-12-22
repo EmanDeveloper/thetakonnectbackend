@@ -11,7 +11,7 @@ import MongoStore from "connect-mongo"
 
 const app = express();
 
-
+app.set("trust proxy",1);
 app.use(
   cors({
     origin: "https://theta-konnect.netlify.app",
@@ -19,7 +19,7 @@ app.use(
   })
 );
 
-// app.set("trust proxy",1);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -40,8 +40,7 @@ app.use(
     cookie: {
       maxAge: 7 * 24 * 60 * 60 * 1000,
       httpOnly: true,
-      secure: true,
-      sameSite:"lax"
+      secure: true
     }
    
   })

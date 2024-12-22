@@ -28,13 +28,13 @@ app.use(cookieParser());
 
 app.use(
   session({
-    // store:MongoStore.create({
-    //   mongoUrl:process.env.DB_URL,
-    //   crypto:{
-    //     secret:process.env.session_secret 
-    //   },
-    //   touchAfter:24*3600,
-    // }),
+    store:MongoStore.create({
+      mongoUrl:process.env.DB_URL,
+      crypto:{
+        secret:process.env.session_secret 
+      },
+      touchAfter:24*3600,
+    }),
     secret: process.env.session_secret,
     resave: false,
     saveUninitialized: false,
